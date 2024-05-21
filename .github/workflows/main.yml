@@ -1,15 +1,32 @@
+
+# This workflow picks files from local repo and push it to azure storage File
+
+name: azure file upload
+
 on:
   push:
     branches:
       - main
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps: 
-    
-    - uses: actions/checkout@v2
-    - uses: kheiakiyama/install-azcopy-action@v1
+
+jobs:  
+
+  upload-files-in-dev:
+    runs-on : ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+        
+
+    - name: Azure Login
+      uses: azure/login@v2
       with:
-        version: 'v10'
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - run: azcopy_v10 copy  https://github.com/Reachswati/bbb/tree/main/.github/workflows/src  https://rg1.file.core.windows.net/folder1 --recursive 
+
+
+    - name: Azure storage file upload
+      uses: azure/cli@v1
+      with:
+        azcliversion: latest
+        inlineScript: |
+           az storage file upload-batch --account-name rg1 --destination folder2 --destination-path https://rg1.file.core.windows.net/folder2 --source .github/workflows
