@@ -29,4 +29,6 @@ jobs:
       with:
         azcliversion: latest
         inlineScript: |
-           az storage file upload-batch --account-name rg1 --destination folder2 -s .github/workflows/src --destination-path https://rg1.file.core.windows.net/folder2
+           az storage file upload-batch --account-name rg1 --destination folder2 -s .github/workflows/src 
+           
+           
