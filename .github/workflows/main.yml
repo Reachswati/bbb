@@ -29,4 +29,4 @@ jobs:
       with:
         azcliversion: latest
         inlineScript: |
-           az storage file upload-batch --account-name rg1 --destination folder2 --destination-path https://rg1.file.core.windows.net/folder2 --source .github/workflows --connection-string DefaultEndpointsProtocol=https;AccountName=rg1;AccountKey=GGvzSnRMeAbc3hSJRdSDwe/temIht0oc1ABzizLjro5/8vqoYoHGG7p8kynSNaMyyGYxZavFmVnv+AStMf8kRw==;EndpointSuffix=core.windows.net
+           az storage file upload-batch --account-name rg1 --destination folder2 --destination-path https://rg1.file.core.windows.net/folder2 --source src --connection-string DefaultEndpointsProtocol=https;AccountName=rg1;AccountKey=GGvzSnRMeAbc3hSJRdSDwe/temIht0oc1ABzizLjro5/8vqoYoHGG7p8kynSNaMyyGYxZavFmVnv+AStMf8kRw==;EndpointSuffix=core.windows.net
