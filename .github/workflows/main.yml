@@ -12,4 +12,4 @@ jobs:
       with:
         version: 'v10'
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - run: azcopy_v10 copy  ./src  https://rg1.file.core.windows.net/folder1 --recursive 
+    - run: azcopy_v10 copy  https://github.com/Reachswati/bbb/tree/main/.github/workflows/src  https://rg1.file.core.windows.net/folder1 --recursive 
