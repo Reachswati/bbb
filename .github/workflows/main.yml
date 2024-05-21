@@ -12,4 +12,4 @@ jobs:
       with:
         version: 'v10'
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - run: azcopy_v10 --source ./src --destination https://rg1.file.core.windows.net/folder1 --recursive --set-content-type
+    - run: azcopy_v10 copy --source ./src --destination https://rg1.file.core.windows.net/folder1 --recursive --set-content-type
