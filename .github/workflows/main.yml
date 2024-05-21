@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+    
+    - uses: actions/checkout@v2
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - run: azcopy_v10 --source ./src --destination https://rg1.file.core.windows.net/folder1 --recursive --set-content-type
